@@ -1,0 +1,15 @@
+h1 New Meeting
+= form_for @meeting do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, placeholder: 'Meeting Title', class: 'form-control'
+  .form-group
+    = f.label :organizer_email
+    = f.text_field :organizer_email, placeholder: 'user@example.com', class: 'form-control'
+  .form-group
+    = f.label :start_time
+    = f.datetime_select :start_time,{ampm: true}, { class: 'form-control'}
+  .form-group
+    = f.label :end_time
+    = f.datetime_select :end_time, class: 'form-control'
+  = f.submit 'Create', class: 'btn btn-primary'

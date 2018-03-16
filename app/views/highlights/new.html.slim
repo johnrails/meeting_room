@@ -1,0 +1,12 @@
+h1 = "Highlight for #{@meeting.title}"
+= form_for @highlight, url: meeting_highlights_path(meeting_id: @meeting.id) do |f|
+  .form-group
+    = f.label :highlight_text
+    = f.text_field :highlight_text, class: 'form-control'
+  .form-group
+      = f.label :start_time
+      = f.datetime_select :start_time, discard_second: true
+  .form-group
+      = f.label :end_time
+      = f.datetime_select :end_time
+  = f.submit 'Create Highlight', class: 'btn btn-primary'

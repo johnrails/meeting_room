@@ -1,0 +1,34 @@
+h1 Meetings
+table.table
+  tr
+    th Title
+    th Organizer Email
+    th Start Time
+    th End Time
+
+  tr
+    td
+      = @meeting.title
+    td
+      = @meeting.organizer_email
+    td = @meeting.start_time.strftime("%b-%d-%y %I:%M")
+    td = @meeting.end_time.strftime("%b-%d-%y %I:%M")
+
+
+h2 Highlights
+- if @meeting.highlights.present?
+  table.table
+    tr
+      th Highlight Text
+      th Start Time
+      th End Time
+      th
+    - @meeting.highlights.each do |h|
+      tr
+        td
+          = h.highlight_text
+
+        td = h.start_time.strftime("%b-%d-%y %I:%M")
+        td = h.end_time.strftime("%b-%d-%y %I:%M")
+        td = link_to 'Delete', meeting_highlight_path(h)
+p = link_to 'Add Highlight', new_meeting_highlight_path(meeting_id: @meeting.id), class: 'btn btn-primary'

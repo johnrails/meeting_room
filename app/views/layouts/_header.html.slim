@@ -1,0 +1,7 @@
+nav.navbar.navbar-dark.bg-inverse
+  .content
+    = link_to "Meetings", root_path, class: "navbar-brand"
+    ul
+      li.nav-item.active
+        = link_to new_meeting_path, class: 'nav-link' do
+          span.sr-only (current)
